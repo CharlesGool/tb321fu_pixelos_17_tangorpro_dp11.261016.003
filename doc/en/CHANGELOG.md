@@ -26,6 +26,13 @@ metadata:
 
 ## Changelog
 
+### user-v1.2(V3)- 2026-11-06
+
+- Note: The first public release of this repository. The user-v1.0 Release was never fully uploaded and was withdrawn for lacking a working WebView; user-v1.1 (V2) was not published and its changes are included here.
+- Fixed: No working WebView in the system, so Google account sign-in and similar screens crashed. New required module `webview-full` ships the full Android System WebView 156.0.8078.47 (since user-v1.1).
+- Fixed: After a keep-data flash of a new release the system did not rescan its system apps and reused records from the previous release (after a keep-data flash of user-v1.1, WebView still could not load its native library). Each release now appends a release marker to `ro.system_ext.build.fingerprint` (`identity` V1.4); `ro.build.fingerprint` is unchanged.
+- Changed: Module count 34 → 35 (31 required plus 4 optional).
+
 ### user-v1.0(V1)- 2026-11-06
 
 - Added: The first release of this repository, providing the complete 9008 flashing package volumes for the Android 17 QPR3 Beta 3 (`DP11.261016.003`) base image, `SHA256SUMS.txt`, and the module list.

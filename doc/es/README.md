@@ -20,7 +20,7 @@ Paquete de flasheo 9008 para la Lenovo Legion Y700 de tercera generación (TB321
 
 ## Introducción
 
-Paquete 9008 del GSI de Android 17 de Pixel Tablet para la Lenovo Legion Y700 de tercera generación (TB321FU). El paquete base es la imagen oficial de Google Android 17 QPR3 Beta 3 (`DP11.261016.003`), un sistema en fase Beta. Versión oficial actual: user-v1.0 (versión interna V1). Los problemas conocidos están en [LOG](LOG.md#limitaciones).
+Paquete 9008 del GSI de Android 17 de Pixel Tablet para la Lenovo Legion Y700 de tercera generación (TB321FU). El paquete base es la imagen oficial de Google Android 17 QPR3 Beta 3 (`DP11.261016.003`), un sistema en fase Beta. Versión oficial actual: user-v1.2 (versión interna V3). Los problemas conocidos están en [LOG](LOG.md#limitaciones).
 
 ### Lo principal, antes de empezar
 
@@ -29,7 +29,7 @@ Paquete 9008 del GSI de Android 17 de Pixel Tablet para la Lenovo Legion Y700 de
 3. El paquete base es una versión Beta de Google, por lo que el propio sistema puede tener problemas de esa fase.
 4. Este paquete se puede compilar automáticamente. Con un PC Linux, puede cambiar el GSI y la versión de la base y compilarlo usted mismo (la base y el firmware original deben aportarse); véase [TB321FU-GSI-Mods](https://github.com/CharlesGool/TB321FU-GSI-Mods).
 
-Cada módulo está descrito en [modules-user-v1.0](../modules-user-v1.0.md). Esta versión tiene 34 módulos: 30 obligatorios y 4 opcionales.
+Cada módulo está descrito en [modules-user-v1.2](../modules-user-v1.2.md). Esta versión tiene 35 módulos: 31 obligatorios y 4 opcionales.
 
 ### Identidad y autenticación
 
@@ -70,6 +70,7 @@ Cada módulo está descrito en [modules-user-v1.0](../modules-user-v1.0.md). Est
 ### Compatibilidad de aplicaciones
 
 - Portado de Tango, con soporte para APK de 32 bits; se pueden usar aplicaciones de 32 bits, tomando como referencia el OnePlus 12 con Android 15 ColorOS.
+- Incluye el Android System WebView completo (156.0.8078.47), disponible desde el primer arranque. La combinación original de la imagen Pixel ("paquete de marcador + descompresión en el primer arranque") no se descomprime en este dispositivo, y el inicio de sesión de la cuenta de Google y pantallas similares se cerraban.
 
 ### Reducción del sistema
 
@@ -111,7 +112,7 @@ Descargue todos los volúmenes (`.7z.001`, `.7z.002`, `.7z.003`) desde [Releases
 
 ```bash
 sha256sum -c SHA256SUMS.txt
-7z x pixelos_tangorpro_dp11.261016.003_user-v1.0_optional.7z.001
+7z x pixelos_tangorpro_dp11.261016.003_user-v1.2_optional.7z.001
 ```
 
 Para flashear conservando datos, ejecute `flash_keep_data.bat`. Ambos scripts están en la raíz del directorio descomprimido; al ejecutarlos, introduzca el número de puerto 9008 (por ejemplo `COM18`). Si tras el flasheo el equipo no se enciende solo, mantenga pulsados el botón de encendido y el de bajar volumen durante más de 8 segundos.
@@ -120,9 +121,9 @@ Para flashear conservando datos, ejecute `flash_keep_data.bat`. Ambos scripts es
 
 | Archivo | Contenido |
 | --- | --- |
-| `…user-v1.0_optional.7z.001`, `.002`, `.003` | Volúmenes 7z del paquete 9008 completo, de como máximo 2000 MiB cada uno |
+| `…user-v1.2_optional.7z.001`, `.002`, `.003` | Volúmenes 7z del paquete 9008 completo, de como máximo 2000 MiB cada uno |
 | `SHA256SUMS.txt` | Sumas de verificación de los volúmenes; el sha256 del paquete completo tras concatenar los volúmenes figura en las notas del Release correspondiente |
-| `module-list.md` | Lista de módulos de esta versión, igual que [modules-user-v1.0](../modules-user-v1.0.md) |
+| `module-list.md` | Lista de módulos de esta versión, igual que [modules-user-v1.2](../modules-user-v1.2.md) |
 
 ### Uso del desbloqueo facial
 
@@ -141,11 +142,11 @@ heraldctl battery bypass on         # carga de bypass; solo se considera activa 
 
 ### Identificación de versión
 
-La versión pública es `user-vMAJOR.MINOR`; el número interno `V<数字>` está escrito en la imagen. user-v1.0 = V1. Cada línea de versión base se numera desde su propio v1.0. Con la suplantación global desactivada, en Ajustes → Acerca de la tableta → "Número de versión" aparece `pixelos_tangorpro_dp11.261016.003_user-v1.0_optional`.
+La versión pública es `user-vMAJOR.MINOR`; el número interno `V<数字>` está escrito en la imagen. user-v1.2 = V3. Cada línea de versión base se numera desde su propio v1.0. Con la suplantación global desactivada, en Ajustes → Acerca de la tableta → "Número de versión" aparece `pixelos_tangorpro_dp11.261016.003_user-v1.2_optional`. Cada versión añade una marca propia al último campo de `ro.system_ext.build.fingerprint` (`.7c5abca8` en user-v1.2), para que al flashear conservando datos el sistema vuelva a analizar las aplicaciones del sistema como en una actualización.
 
 ## Actualización
 
-Esta es la primera versión de este repositorio, por lo que no hay una versión anterior desde la que actualizar. Si viene del sistema original de fábrica, de Android 15 o de cualquier otro sistema, ejecute `flash.bat` (borra los datos) con el paquete completo. El flasheo conservando datos (`flash_keep_data.bat`) solo se aplica si el dispositivo ya tenía el sistema Android 17 de este proyecto. Verificación: tras arrancar, el número de versión en Ajustes debe contener `user-v1.0`.
+Esta es la primera versión pública de este repositorio (la Release de user-v1.0 no se terminó de subir y se retiró por no tener un WebView funcional; user-v1.1 no se publicó), por lo que no hay una versión pública anterior desde la que actualizar. Si viene del sistema original de fábrica, de Android 15 o de cualquier otro sistema, ejecute `flash.bat` (borra los datos) con el paquete completo. El flasheo conservando datos (`flash_keep_data.bat`) solo se aplica si el dispositivo ya tenía el sistema Android 17 de este proyecto. Verificación: tras arrancar, el número de versión en Ajustes debe contener `user-v1.2`.
 
 ## Desinstalación
 

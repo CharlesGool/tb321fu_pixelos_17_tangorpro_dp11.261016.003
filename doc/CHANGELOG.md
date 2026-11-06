@@ -26,6 +26,13 @@ metadata:
 
 ## 变更日志
 
+### user-v1.2(V3)- 2026-11-06
+
+- 说明: 本仓库第一个公开的正式版. user-v1.0 的 Release 没有传完, 因缺可用的 WebView 作废; user-v1.1(V2)未公开发布, 它的改动并入本版.
+- 修复: 系统里没有可用的 WebView, 谷歌账号登录等界面闪退. 新增必选模块 `webview-full`, 内置完整的 Android System WebView 156.0.8078.47(user-v1.1 起).
+- 修复: 保数据刷新版后系统不重新扫描系统应用, 沿用旧版留下的记录(user-v1.1 保数据刷入后 WebView 仍加载不了原生库). 每一版的 `ro.system_ext.build.fingerprint` 末段带本版标记(`identity` V1.4), `ro.build.fingerprint` 不变.
+- 变更: 模块数 34 → 35(31 个必选加 4 个可选).
+
 ### user-v1.0(V1)- 2026-11-06
 
 - 新增: 本仓库的首个 Release, 提供 Android 17 QPR3 Beta 3(`DP11.261016.003`)底包的完整 9008 刷机包分卷, `SHA256SUMS.txt` 和模块列表.

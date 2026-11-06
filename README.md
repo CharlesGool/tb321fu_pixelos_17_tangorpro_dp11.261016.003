@@ -20,7 +20,7 @@
 
 ## 简介
 
-联想拯救者 Y700 三代(TB321FU)的 Pixel Tablet Android 17 GSI 9008 刷机包. 底包是 Google 官方 Android 17 QPR3 Beta 3(`DP11.261016.003`)镜像, 是 Beta 版系统. 当前正式版 user-v1.0(内部版本 V1). 已知问题见 [LOG](doc/LOG.md#限制).
+联想拯救者 Y700 三代(TB321FU)的 Pixel Tablet Android 17 GSI 9008 刷机包. 底包是 Google 官方 Android 17 QPR3 Beta 3(`DP11.261016.003`)镜像, 是 Beta 版系统. 当前正式版 user-v1.2(内部版本 V3). 已知问题见 [LOG](doc/LOG.md#限制).
 
 ### 重点, 写在前面
 
@@ -29,7 +29,7 @@
 3. 底包是 Google 的 Beta 版, 系统本身可能还有 Beta 阶段的问题.
 4. 本刷机包可自动化构建. 有 Linux PC 的话, 可以自己更换 GSI 和底包版本并构建(底包和原厂固件需自备), 见 [TB321FU-GSI-Mods](https://github.com/CharlesGool/TB321FU-GSI-Mods).
 
-每个模块的作用见 [modules-user-v1.0](doc/modules-user-v1.0.md). 本版共 34 个模块: 30 个必选模块加 4 个可选模块.
+每个模块的作用见 [modules-user-v1.2](doc/modules-user-v1.2.md). 本版共 35 个模块: 31 个必选模块加 4 个可选模块.
 
 ### 身份和认证
 
@@ -70,6 +70,7 @@
 ### 应用兼容
 
 - 移植 Tango, 支持 32 位 APK, 可以玩 32 位应用(参考一加 12 Android 15 ColorOS).
+- 内置完整的 Android System WebView(156.0.8078.47), 开机即可用; Pixel 镜像原来的"占位包 + 首次开机解压"在本机上解压不出来, 谷歌账号登录等界面会闪退.
 
 ### 系统精简
 
@@ -111,7 +112,7 @@
 
 ```bash
 sha256sum -c SHA256SUMS.txt
-7z x pixelos_tangorpro_dp11.261016.003_user-v1.0_optional.7z.001
+7z x pixelos_tangorpro_dp11.261016.003_user-v1.2_optional.7z.001
 ```
 
 保数据刷运行 `flash_keep_data.bat`. 两个脚本都在解压目录根部, 运行后输入 9008 端口号(如 `COM18`). 刷完没有自动开机时, 长按电源键和音量下 8 秒以上.
@@ -120,9 +121,9 @@ sha256sum -c SHA256SUMS.txt
 
 | 文件 | 内容 |
 | --- | --- |
-| `…user-v1.0_optional.7z.001`, `.002`, `.003` | 完整 9008 刷机包的 7z 分卷, 每卷最多 2000 MiB |
+| `…user-v1.2_optional.7z.001`, `.002`, `.003` | 完整 9008 刷机包的 7z 分卷, 每卷最多 2000 MiB |
 | `SHA256SUMS.txt` | 分卷的校验值; 拼接后整包的 sha256 写在对应 Release 的说明里 |
-| `module-list.md` | 本版模块列表, 同 [modules-user-v1.0](doc/modules-user-v1.0.md) |
+| `module-list.md` | 本版模块列表, 同 [modules-user-v1.2](doc/modules-user-v1.2.md) |
 
 ### 使用人脸解锁
 
@@ -141,11 +142,11 @@ heraldctl battery bypass on         # 旁路充电, 回包 verified=yes 才算�
 
 ### 版本标识
 
-对外版本 `user-vMAJOR.MINOR`, 内部版本号 `V<数字>` 写在镜像里, user-v1.0 = V1. 每条底包线从自己的 v1.0 起编号. 全局伪装关闭时, 设置 → 关于平板电脑 → 版本号显示 `pixelos_tangorpro_dp11.261016.003_user-v1.0_optional`.
+对外版本 `user-vMAJOR.MINOR`, 内部版本号 `V<数字>` 写在镜像里, user-v1.2 = V3. 每条底包线从自己的 v1.0 起编号. 全局伪装关闭时, 设置 → 关于平板电脑 → 版本号显示 `pixelos_tangorpro_dp11.261016.003_user-v1.2_optional`. 每一版的 `ro.system_ext.build.fingerprint` 末段带本版标记(user-v1.2 是 `.7c5abca8`), 保数据刷新版时系统会按升级重新扫描系统应用.
 
 ## 升级
 
-本版是本仓库的第一个正式版, 没有旧版本可以升级. 从原厂系统, Android 15 线或其他系统换过来, 请用完整包运行 `flash.bat`(清数据). 保数据刷(`flash_keep_data.bat`)只适用于设备上原来就是本项目 Android 17 系统的情况. 验证: 开机后设置里的版本号应含 `user-v1.0`.
+本版是本仓库第一个公开的正式版(user-v1.0 的 Release 没有传完, 因缺可用的 WebView 作废; user-v1.1 未公开发布), 没有公开的旧版本可以升级. 从原厂系统, Android 15 线或其他系统换过来, 请用完整包运行 `flash.bat`(清数据). 保数据刷(`flash_keep_data.bat`)只适用于设备上原来就是本项目 Android 17 系统的情况. 验证: 开机后设置里的版本号应含 `user-v1.2`.
 
 ## 卸载
 

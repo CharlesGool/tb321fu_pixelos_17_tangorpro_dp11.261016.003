@@ -57,6 +57,7 @@ No confirmed bugs.
 | 2026-11-06 | Release numbers are per base-image line; the first release of this repository is user-v1.0 | Accepted | Each base-image line is numbered from v1.0 |
 | 2026-11-06 | The base image is `DP11.261016.003`, not `CP3A.260905.009` | Accepted | The CP3A base image does not boot on this device; the stock DP11 base image boots normally |
 | 2026-11-06 | The built-in camera is the Lenovo stock camera, no longer the Pixel Camera | Accepted | The Pixel Camera is unreliable on Android 17 |
+| 2026-11-06 | Append a release marker to the last field of `ro.system_ext.build.fingerprint` in every release | Accepted | With identical fingerprints a keep-data flash is not a system upgrade, so the system reuses old records; that is why user-v1.1's WebView could not load its native library. Only the system_ext fingerprint changes; the attestation-related `ro.build.fingerprint` stays the same |
 | 2026-11-06 | Third-party licenses not yet verified when the repository is made public | Accepted | Follows the approach of the Android 15 line repository; verification is listed as a remaining step |
 
 ## Handoff

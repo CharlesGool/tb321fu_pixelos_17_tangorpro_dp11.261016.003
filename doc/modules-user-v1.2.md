@@ -1,23 +1,23 @@
 ---
-name: modules-user-v1-0
-description: user-v1.0 的补丁模块列表
+name: modules-user-v1-2
+description: user-v1.2 的补丁模块列表
 metadata:
   version: "1.0.0"
   lang: "zh-CN"
 ---
 
-# user-v1.0 模块列表
+# user-v1.2 模块列表
 
-本版(内部版本 V1)由 34 个补丁模块构建: 30 个 `required` 模块, 加 4 个 `optional` 模块. 原始清单见刷机包根目录的 `MODULES.txt` 和 `SELECTION.txt`.
+本版(内部版本 V3)由 35 个补丁模块构建: 31 个 `required` 模块, 加 4 个 `optional` 模块. 原始清单见刷机包根目录的 `MODULES.txt` 和 `SELECTION.txt`.
 
-构建参数: `VERSION=V1 VERSION_LABEL=user-v1.0 PROFILE=user-v1.4 CAMERA=zui`(预设名 `user-v1.4` 沿用 Android 15 线的"标准选集"叫法, 不是本包的发布号).
+构建参数: `VERSION=V3 VERSION_LABEL=user-v1.2 PROFILE=user-v1.4 CAMERA=zui`(预设名 `user-v1.4` 沿用 Android 15 线的"标准选集"叫法, 不是本包的发布号).
 设备: 联想拯救者 Y700 三代 TB321FU, 底包 Pixel Tablet(tangorpro)Android 17 QPR3 Beta 3 `DP11.261016.003` GSI(Google 官方镜像经 MysticGSI 工具转成), vendor 和 boot 用联想原厂 ZUI 17.0.12.044.
 
 ## 身份与隐藏
 
 | 模块 | 作用 |
 |---|---|
-| 机型还原 `identity` | `ro.product.*` 改成 TB321FU, 指纹保留 Android 17 的版本段只换机型段; 各分区 build.prop 的 `ro.build.display.id` 都写本包版本号 |
+| 机型还原 `identity` | `ro.product.*` 改成 TB321FU, 指纹保留 Android 17 的版本段只换机型段; 各分区 build.prop 的 `ro.build.display.id` 都写本包版本号; `ro.system_ext.build.fingerprint` 末段加本版标记, 保数据刷新版时系统按升级重新扫描系统应用. 本版为 V1.4 |
 | 关闭调试 `debug-off` | 关掉调试相关开关 |
 | 隐藏 GSI 痕迹 `gsi-hide` | `partition.*.verified` 改 1, 去掉虚拟机属性标签 |
 | 全局指纹伪装 `global-pif` (可选) | 全局指纹伪装; 开启后"版本号"也显示伪装机型的值 |
@@ -65,6 +65,7 @@ metadata:
 |---|---|
 | 联想相机 `zuicamera` | 从原厂 ZUI 固件取联想相机装进系统, 并修补它在 GSI 上的问题: 辅助镜头清单, 相机编号核对, 读真实机型, 屏蔽不支持的功能, 不再要求读写存储权限, 拍照前"内存已满"判断改按真实已用量(Android 17 上原判断恒为满, 快门没反应) |
 | 电池管理 `battery` | `heraldctl battery`: 电芯寿命查看, 长期插电保护, 充电上限, 旁路充电 |
+| 完整 WebView `webview-full` | 用完整的 Android System WebView 156.0.8078.47 换掉 Pixel 镜像里"占位包 + 首次开机解压"的组合, 开机即可用(原组合在本机上解压不出来, 谷歌账号登录等界面闪退) |
 | 32 位应用支持 `tango` | Tango 二进制翻译: 翻译器, sepolicy, 内核模块, 32 位 vendor 库, 32 位 zygote 和开机保险; Android 17 上去掉了已不存在的 `boringssl_self_test64` 依赖 |
 | 人脸解锁 `faceunlock` | 生物识别放行钩子 + FaceUnlock App 和权限 + 设置里的人脸入口; 框架钩子已按 Android 17 的 `services.jar` 重新适配 |
 | 自由旋转 `free-rotation` (可选) | 四个方向都能自动旋转, 包括竖屏倒过来; 不受"显示大小"影响 |

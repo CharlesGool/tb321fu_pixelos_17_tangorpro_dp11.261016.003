@@ -26,4 +26,6 @@ metadata:
 
 ## Registros históricos
 
-- 2026-11-06: Se creó este repositorio y se publicaron los volúmenes del paquete 9008 de user-v1.0 (V1).
+- 2026-11-06: Se creó este repositorio y se preparó user-v1.0 (V1); en el dispositivo se vio que no había un WebView funcional, así que esa versión se retiró y su Release quedó como borrador.
+- 2026-11-06: user-v1.1 (V2) incluyó el WebView completo y no se publicó; tras flashearla conservando datos, WebView seguía sin funcionar.
+- 2026-11-06: Se publicó user-v1.2 (V3): cada versión marca su huella, lo que corrige WebView tras flashear conservando datos; verificado por el autor en el dispositivo.

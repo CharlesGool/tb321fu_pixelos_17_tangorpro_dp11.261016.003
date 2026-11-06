@@ -57,6 +57,7 @@ No hay errores confirmados.
 | 2026-11-06 | La numeración de versiones es por línea de versión base; la primera versión de este repositorio es user-v1.0 | Aceptada | Cada línea de versión base se numera desde v1.0 |
 | 2026-11-06 | Paquete base `DP11.261016.003`, no `CP3A.260905.009` | Aceptada | El paquete base CP3A no arranca en este equipo; el paquete DP11 arranca con normalidad |
 | 2026-11-06 | La cámara integrada es la cámara original de Lenovo, no la de Pixel | Aceptada | La cámara de Pixel funciona de forma intermitente en Android 17 |
+| 2026-11-06 | Añadir una marca propia al último campo de `ro.system_ext.build.fingerprint` en cada versión | Aceptada | Con huellas idénticas, flashear conservando datos no cuenta como actualización del sistema y se reutilizan los registros anteriores; por eso el WebView de user-v1.1 no podía cargar su biblioteca nativa. Solo cambia la huella de system_ext; `ro.build.fingerprint`, que usa la certificación, no cambia |
 | 2026-11-06 | Licencias de terceros sin verificar al hacer público el repositorio | Aceptada | Sigue lo hecho en el repositorio de Android 15; la verificación queda como paso pendiente |
 
 ## Traspaso

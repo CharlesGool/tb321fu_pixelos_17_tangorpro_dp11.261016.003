@@ -20,7 +20,7 @@
 
 ## Introduction
 
-The Pixel Tablet Android 17 GSI 9008 flashing package for the Lenovo Legion Y700 Gen 3 (TB321FU). The base image is Google's official Android 17 QPR3 Beta 3 (`DP11.261016.003`) image, which is a Beta system. The current release is user-v1.0 (internal build V1). Known issues are in [LOG](LOG.md#limitations).
+The Pixel Tablet Android 17 GSI 9008 flashing package for the Lenovo Legion Y700 Gen 3 (TB321FU). The base image is Google's official Android 17 QPR3 Beta 3 (`DP11.261016.003`) image, which is a Beta system. The current release is user-v1.2 (internal build V3). Known issues are in [LOG](LOG.md#limitations).
 
 ### Key Points Up Front
 
@@ -29,7 +29,7 @@ The Pixel Tablet Android 17 GSI 9008 flashing package for the Lenovo Legion Y700
 3. The base image is a Google Beta build, so the system itself may still have issues from the Beta stage.
 4. This package can be built automatically. With a Linux PC, you can replace the GSI and base-image versions and build it yourself (the base image and stock firmware must be supplied by you); see [TB321FU-GSI-Mods](https://github.com/CharlesGool/TB321FU-GSI-Mods).
 
-The function of each module is described in [modules-user-v1.0](../modules-user-v1.0.md). This release includes 34 modules: 30 required modules plus 4 optional modules.
+The function of each module is described in [modules-user-v1.2](../modules-user-v1.2.md). This release includes 35 modules: 31 required modules plus 4 optional modules.
 
 ### Identity and Attestation
 
@@ -70,6 +70,7 @@ The function of each module is described in [modules-user-v1.0](../modules-user-
 ### App Compatibility
 
 - Ported Tango, which supports 32-bit APKs so that 32-bit apps can run (refer to OnePlus 12 Android 15 ColorOS).
+- Ships the full Android System WebView (156.0.8078.47), usable from first boot. The Pixel image's original "stub plus decompress on first boot" setup fails to decompress on this device, which made Google account sign-in and similar screens crash.
 
 ### System Trimming
 
@@ -111,7 +112,7 @@ Download all volumes (`.7z.001`, `.7z.002`, `.7z.003`) from [Releases](https://g
 
 ```bash
 sha256sum -c SHA256SUMS.txt
-7z x pixelos_tangorpro_dp11.261016.003_user-v1.0_optional.7z.001
+7z x pixelos_tangorpro_dp11.261016.003_user-v1.2_optional.7z.001
 ```
 
 For a keep-data flash, run `flash_keep_data.bat`. Both scripts are in the root of the extracted directory. After running them, enter the 9008 port number (e.g. `COM18`). If the device does not power on automatically after flashing, hold the power button and volume down for more than 8 seconds.
@@ -120,9 +121,9 @@ For a keep-data flash, run `flash_keep_data.bat`. Both scripts are in the root o
 
 | File | Contents |
 | --- | --- |
-| `…user-v1.0_optional.7z.001`, `.002`, `.003` | The 7z volumes of the complete 9008 flashing package, up to 2000 MiB each |
+| `…user-v1.2_optional.7z.001`, `.002`, `.003` | The 7z volumes of the complete 9008 flashing package, up to 2000 MiB each |
 | `SHA256SUMS.txt` | Checksums for the volumes; the sha256 of the concatenated complete package is in the notes of the corresponding Release |
-| `module-list.md` | Module list for this release, same as [modules-user-v1.0](../modules-user-v1.0.md) |
+| `module-list.md` | Module list for this release, same as [modules-user-v1.2](../modules-user-v1.2.md) |
 
 ### Using Face Unlock
 
@@ -141,11 +142,11 @@ heraldctl battery bypass on         # bypass charging; only active once the repl
 
 ### Version Naming
 
-The public version is `user-vMAJOR.MINOR`, and the internal build number `V<number>` is written into the image; user-v1.0 = V1. Each base-image line is numbered from its own v1.0. With global spoofing off, Settings → About tablet → Version number shows `pixelos_tangorpro_dp11.261016.003_user-v1.0_optional`.
+The public version is `user-vMAJOR.MINOR`, and the internal build number `V<number>` is written into the image; user-v1.2 = V3. Each base-image line is numbered from its own v1.0. With global spoofing off, Settings → About tablet → Version number shows `pixelos_tangorpro_dp11.261016.003_user-v1.2_optional`. Each release appends a release marker to the last field of `ro.system_ext.build.fingerprint` (`.7c5abca8` for user-v1.2), so a keep-data flash of a new release makes the system rescan its system apps as an upgrade.
 
 ## Upgrade
 
-This is the first release of this repository, so there is no earlier version to upgrade from. When coming from the stock system, the Android 15 line or any other system, run `flash.bat` (wipe data) from the full package. Keep-data flashing (`flash_keep_data.bat`) only applies to a device already running this project's Android 17 system. Verification: after boot, the version number in Settings should contain `user-v1.0`.
+This is the first public release of this repository (the user-v1.0 Release was never fully uploaded and was withdrawn for lacking a working WebView; user-v1.1 was not published), so there is no public earlier version to upgrade from. When coming from the stock system, the Android 15 line or any other system, run `flash.bat` (wipe data) from the full package. Keep-data flashing (`flash_keep_data.bat`) only applies to a device already running this project's Android 17 system. Verification: after boot, the version number in Settings should contain `user-v1.2`.
 
 ## Uninstall
 
