@@ -26,6 +26,11 @@ metadata:
 
 ## 变更日志
 
+### user-v1.5(V6)- 2026-11-07
+
+- 修复: 「文曲知音」仍会自启。v1.3 删了 Now Playing 应用, 但 Android System Intelligence(ASI)还会从 `product/etc/firmware/music_detector.*` 这 4 个声学模型重新起环境音乐识别, 常驻占用录音会话, 偶尔还让声音断断续续。本版把 `now-playing` 升到 V1.1, 连这 4 个模型(descriptor / sound_model / sound_model_2 / sound_model_tflite)一起删, ASI 没有模型就加载不了, 「文曲知音」从此彻底不自启。
+- 说明: 模块集与 user-v1.4 相同(36 个), 其余不变。本 Release 先提供从 user-v1.4 升级的增量补丁, 完整包稍后补。
+
 ### user-v1.4(V5)- 2026-11-07
 
 - 新增: 一键伪装命令(`attestation-fix` V1.2). `heraldctl spoof tablet` 一条命令伪装成 Pixel Tablet, `spoof on <机型>` 任意内建机型一键开, 关闭用 `spoof off`; 省掉原来 apply→get→set 的多步. 真机实测 `spoof tablet` 过 Play 认证.

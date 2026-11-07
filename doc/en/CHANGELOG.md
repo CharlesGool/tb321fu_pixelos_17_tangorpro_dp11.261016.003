@@ -26,6 +26,11 @@ metadata:
 
 ## Changelog
 
+### user-v1.5(V6)- 2026-11-07
+
+- Fixed: Now Playing still auto-started. v1.3 removed the Now Playing app, but Android System Intelligence (ASI) kept re-starting ambient music recognition from the four acoustic models at `product/etc/firmware/music_detector.*`, holding a recording session open and occasionally making audio choppy again. This version bumps `now-playing` to V1.1 and also removes those four models (descriptor / sound_model / sound_model_2 / sound_model_tflite); with no models to load, ASI cannot start it, so Now Playing never auto-starts again.
+- Note: Same module set as user-v1.4 (36 modules); otherwise unchanged. This Release provides the incremental patch from user-v1.4 first; the full package will be added later.
+
 ### user-v1.4(V5)- 2026-11-07
 
 - Added: One-tap spoofing (`attestation-fix` V1.2). `heraldctl spoof tablet` spoofs as a Pixel Tablet in a single command, `spoof on <product>` enables any built-in model in one step, and `spoof off` disables it — no more apply→get→set steps. Tested on-device: `spoof tablet` passes Play certification.

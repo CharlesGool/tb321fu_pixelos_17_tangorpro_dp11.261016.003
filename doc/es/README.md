@@ -20,7 +20,7 @@ Paquete de flasheo 9008 para la Lenovo Legion Y700 de tercera generación (TB321
 
 ## Introducción
 
-Paquete 9008 del GSI de Android 17 de Pixel Tablet para la Lenovo Legion Y700 de tercera generación (TB321FU). El paquete base es la imagen oficial de Google Android 17 QPR3 Beta 3 (`DP11.261016.003`), un sistema en fase Beta. Versión oficial actual: user-v1.4 (versión interna V5), que añade la suplantación en un toque sobre v1.3 (que eliminó Now Playing). **Nota: user-v1.4 se ofrece como parche incremental desde user-v1.3 en Releases; el paquete completo se añadirá más adelante. Para actualizar desde una versión anterior, aplique los parches en orden (v1.2→v1.3→v1.4); para una instalación limpia, use por ahora el paquete completo de user-v1.2.** Los problemas conocidos están en [LOG](LOG.md#limitaciones).
+Paquete 9008 del GSI de Android 17 de Pixel Tablet para la Lenovo Legion Y700 de tercera generación (TB321FU). El paquete base es la imagen oficial de Google Android 17 QPR3 Beta 3 (`DP11.261016.003`), un sistema en fase Beta. Versión oficial actual: user-v1.5 (versión interna V6), que sube `now-playing` a V1.1 sobre v1.4 (eliminando también los cuatro modelos acústicos de ASI, de modo que Now Playing ya no se inicia automáticamente). **Nota: user-v1.5 se ofrece como parche incremental desde user-v1.4 en Releases; el paquete completo se añadirá más adelante. Para actualizar desde una versión anterior, aplique los parches en orden (v1.2→v1.3→v1.4→v1.5); para una instalación limpia, use por ahora el paquete completo de user-v1.2.** Los problemas conocidos están en [LOG](LOG.md#limitaciones).
 
 ### Lo principal, antes de empezar
 
@@ -29,7 +29,7 @@ Paquete 9008 del GSI de Android 17 de Pixel Tablet para la Lenovo Legion Y700 de
 3. El paquete base es una versión Beta de Google, por lo que el propio sistema puede tener problemas de esa fase.
 4. Este paquete se puede compilar automáticamente. Con un PC Linux, puede cambiar el GSI y la versión de la base y compilarlo usted mismo (la base y el firmware original deben aportarse); véase [TB321FU-GSI-Mods](https://github.com/CharlesGool/TB321FU-GSI-Mods).
 
-Cada módulo está descrito en [modules-user-v1.4](../modules-user-v1.4.md). Esta versión tiene 36 módulos: 32 obligatorios y 4 opcionales.
+Cada módulo está descrito en [modules-user-v1.5](../modules-user-v1.5.md). Esta versión tiene 36 módulos: 32 obligatorios y 4 opcionales.
 
 ### Identidad y autenticación
 
