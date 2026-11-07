@@ -26,6 +26,11 @@ metadata:
 
 ## Changelog
 
+### user-v1.4(V5)- 2026-11-07
+
+- Added: One-tap spoofing (`attestation-fix` V1.2). `heraldctl spoof tablet` spoofs as a Pixel Tablet in a single command, `spoof on <product>` enables any built-in model in one step, and `spoof off` disables it — no more apply→get→set steps. Tested on-device: `spoof tablet` passes Play certification.
+- Note: Same module set as user-v1.3 (36 modules); otherwise unchanged. This Release provides the incremental patch from user-v1.3 first; the full package will be added later.
+
 ### user-v1.3(V4)- 2026-11-07
 
 - Fixed: Choppy audio. Now Playing (ambient music recognition) kept a recording session open and competed with normal playback for the audio path. New required module `now-playing` removes the Now Playing app (`NowPlayingPrebuilt`) and its sysconfig; audio is back to normal after removal. It is a standalone app, not part of Android System Intelligence, so removing it does not affect Live Caption and similar features.

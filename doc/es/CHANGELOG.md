@@ -26,6 +26,11 @@ metadata:
 
 ## Historial de cambios
 
+### user-v1.4(V5)- 2026-11-07
+
+- Añadido: suplantación en un toque (`attestation-fix` V1.2). `heraldctl spoof tablet` suplanta como Pixel Tablet con un solo comando, `spoof on <product>` activa cualquier modelo integrado en un paso, y `spoof off` lo desactiva, sin los pasos apply→get→set. Probado en el dispositivo: `spoof tablet` pasa la certificación de Play.
+- Nota: mismo conjunto de módulos que user-v1.3 (36 módulos); sin otros cambios. Esta Release ofrece primero el parche incremental desde user-v1.3; el paquete completo se añadirá más adelante.
+
 ### user-v1.3(V4)- 2026-11-07
 
 - Corregido: sonido entrecortado. Now Playing (reconocimiento de música ambiental) mantenía abierta una sesión de grabación y competía con la reproducción normal por la ruta de audio. El nuevo módulo obligatorio `now-playing` elimina la app Now Playing (`NowPlayingPrebuilt`) y su sysconfig; el audio vuelve a la normalidad tras eliminarla. Es una app independiente, no forma parte de Android System Intelligence, así que eliminarla no afecta a los subtítulos en directo ni a funciones similares.

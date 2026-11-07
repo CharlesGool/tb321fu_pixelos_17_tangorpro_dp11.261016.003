@@ -26,6 +26,11 @@ metadata:
 
 ## 变更日志
 
+### user-v1.4(V5)- 2026-11-07
+
+- 新增: 一键伪装命令(`attestation-fix` V1.2). `heraldctl spoof tablet` 一条命令伪装成 Pixel Tablet, `spoof on <机型>` 任意内建机型一键开, 关闭用 `spoof off`; 省掉原来 apply→get→set 的多步. 真机实测 `spoof tablet` 过 Play 认证.
+- 说明: 模块集与 user-v1.3 相同(36 个), 其余不变. 本 Release 先提供从 user-v1.3 升级的增量补丁, 完整包稍后补.
+
 ### user-v1.3(V4)- 2026-11-07
 
 - 修复: 声音断断续续. Now Playing(环境音乐识别)常驻占用录音会话, 和正常播放抢音频通路. 新增必选模块 `now-playing`, 删掉 Now Playing 应用(`NowPlayingPrebuilt`)及其 sysconfig; 删后音频恢复正常. 它是独立应用, 不在 Android System Intelligence 里, 删它不影响实时字幕等功能.
