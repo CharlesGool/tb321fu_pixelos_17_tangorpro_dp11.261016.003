@@ -26,6 +26,12 @@ metadata:
 
 ## Changelog
 
+### user-v1.3(V4)- 2026-11-07
+
+- Fixed: Choppy audio. Now Playing (ambient music recognition) kept a recording session open and competed with normal playback for the audio path. New required module `now-playing` removes the Now Playing app (`NowPlayingPrebuilt`) and its sysconfig; audio is back to normal after removal. It is a standalone app, not part of Android System Intelligence, so removing it does not affect Live Caption and similar features.
+- Changed: Module count 35 → 36 (32 required plus 4 optional).
+- Note: Otherwise identical to user-v1.2. This Release provides the incremental patch from user-v1.2 first; the full package will be added later.
+
 ### user-v1.2(V3)- 2026-11-06
 
 - Note: The first public release of this repository. The user-v1.0 Release was never fully uploaded and was withdrawn for lacking a working WebView; user-v1.1 (V2) was not published and its changes are included here.

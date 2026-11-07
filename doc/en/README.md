@@ -20,7 +20,7 @@
 
 ## Introduction
 
-The Pixel Tablet Android 17 GSI 9008 flashing package for the Lenovo Legion Y700 Gen 3 (TB321FU). The base image is Google's official Android 17 QPR3 Beta 3 (`DP11.261016.003`) image, which is a Beta system. The current release is user-v1.2 (internal build V3). Known issues are in [LOG](LOG.md#limitations).
+The Pixel Tablet Android 17 GSI 9008 flashing package for the Lenovo Legion Y700 Gen 3 (TB321FU). The base image is Google's official Android 17 QPR3 Beta 3 (`DP11.261016.003`) image, which is a Beta system. The current release is user-v1.3 (internal build V4), which removes Now Playing on top of v1.2 (fixes choppy audio). **Note: user-v1.3 currently ships only as an incremental patch from user-v1.2 in Releases; the full package will be added later. For a fresh install, use the user-v1.2 full package for now.** Known issues are in [LOG](LOG.md#limitations).
 
 ### Key Points Up Front
 
@@ -29,7 +29,7 @@ The Pixel Tablet Android 17 GSI 9008 flashing package for the Lenovo Legion Y700
 3. The base image is a Google Beta build, so the system itself may still have issues from the Beta stage.
 4. This package can be built automatically. With a Linux PC, you can replace the GSI and base-image versions and build it yourself (the base image and stock firmware must be supplied by you); see [TB321FU-GSI-Mods](https://github.com/CharlesGool/TB321FU-GSI-Mods).
 
-The function of each module is described in [modules-user-v1.2](../modules-user-v1.2.md). This release includes 35 modules: 31 required modules plus 4 optional modules.
+The function of each module is described in [modules-user-v1.3](../modules-user-v1.3.md). This release includes 36 modules: 32 required modules plus 4 optional modules.
 
 ### Identity and Attestation
 

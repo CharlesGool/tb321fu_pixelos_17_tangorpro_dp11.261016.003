@@ -26,6 +26,12 @@ metadata:
 
 ## 变更日志
 
+### user-v1.3(V4)- 2026-11-07
+
+- 修复: 声音断断续续. Now Playing(环境音乐识别)常驻占用录音会话, 和正常播放抢音频通路. 新增必选模块 `now-playing`, 删掉 Now Playing 应用(`NowPlayingPrebuilt`)及其 sysconfig; 删后音频恢复正常. 它是独立应用, 不在 Android System Intelligence 里, 删它不影响实时字幕等功能.
+- 变更: 模块数 35 → 36(32 个必选加 4 个可选).
+- 说明: 其余与 user-v1.2 相同. 本 Release 先提供从 user-v1.2 升级的增量补丁, 完整包稍后补.
+
 ### user-v1.2(V3)- 2026-11-06
 
 - 说明: 本仓库第一个公开的正式版. user-v1.0 的 Release 没有传完, 因缺可用的 WebView 作废; user-v1.1(V2)未公开发布, 它的改动并入本版.

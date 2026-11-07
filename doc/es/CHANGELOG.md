@@ -26,6 +26,12 @@ metadata:
 
 ## Historial de cambios
 
+### user-v1.3(V4)- 2026-11-07
+
+- Corregido: sonido entrecortado. Now Playing (reconocimiento de música ambiental) mantenía abierta una sesión de grabación y competía con la reproducción normal por la ruta de audio. El nuevo módulo obligatorio `now-playing` elimina la app Now Playing (`NowPlayingPrebuilt`) y su sysconfig; el audio vuelve a la normalidad tras eliminarla. Es una app independiente, no forma parte de Android System Intelligence, así que eliminarla no afecta a los subtítulos en directo ni a funciones similares.
+- Cambiado: número de módulos 35 → 36 (32 obligatorios y 4 opcionales).
+- Nota: por lo demás, idéntica a user-v1.2. Esta Release ofrece primero el parche incremental desde user-v1.2; el paquete completo se añadirá más adelante.
+
 ### user-v1.2(V3)- 2026-11-06
 
 - Nota: primera versión pública de este repositorio. La Release de user-v1.0 no se terminó de subir y se retiró por no tener un WebView funcional; user-v1.1 (V2) no se publicó y sus cambios se incluyen aquí.
