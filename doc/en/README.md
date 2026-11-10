@@ -20,7 +20,7 @@
 
 ## Introduction
 
-The Pixel Tablet Android 17 GSI 9008 flashing package for the Lenovo Legion Y700 Gen 3 (TB321FU). The base image is Google's official Android 17 QPR3 Beta 3 (`DP11.261016.003`) image, which is a Beta system. The current release is user-v1.5 (internal build V6), which bumps `now-playing` to V1.1 on top of v1.4 (also removing ASI's four acoustic models, so Now Playing never auto-starts again). **Note: user-v1.5 ships as an incremental patch from user-v1.4 in Releases; the full package will be added later. To upgrade from an older version, apply the patches in order (v1.2→v1.3→v1.4→v1.5); for a fresh install, use the user-v1.2 full package for now.** Known issues are in [LOG](LOG.md#limitations).
+The Pixel Tablet Android 17 GSI 9008 flashing package for the Lenovo Legion Y700 Gen 3 (TB321FU). The base image is Google's official Android 17 QPR3 Beta 3 (`DP11.261016.003`) image, which is a Beta system. The current release is user-v2.0 (internal build V23). On top of user-v1.9 it adds a dual-motor vibrator HAL, Wi-Fi-only handling, audio/video power-profile entries, a qesdk seccomp fix, cover-close sleep / edge rotation, a long-press quick-settings auto-brightness tile, flashlight strength levels, built-in Settings apps (battery / spoofing / navbar) and predictive back for them and the Lenovo camera, and it fixes the keystore2 crash after a herald restart. **Note: Releases ship step-by-step incremental patches, upgrade chain v1.5→v1.9→v2.0 (each from the previous one); the full package will be added later, use the user-v1.2 full package for a fresh install for now.** Known issues are in [LOG](LOG.md#limitations).
 
 ### Key Points Up Front
 
@@ -29,7 +29,7 @@ The Pixel Tablet Android 17 GSI 9008 flashing package for the Lenovo Legion Y700
 3. The base image is a Google Beta build, so the system itself may still have issues from the Beta stage.
 4. This package can be built automatically. With a Linux PC, you can replace the GSI and base-image versions and build it yourself (the base image and stock firmware must be supplied by you); see [TB321FU-GSI-Mods](https://github.com/CharlesGool/TB321FU-GSI-Mods).
 
-The function of each module is described in [modules-user-v1.5](../modules-user-v1.5.md). This release includes 36 modules: 32 required modules plus 4 optional modules.
+The function of each module is described in [modules-user-v2.0](../modules-user-v2.0.md). This release includes 48 modules: 44 required modules plus 4 optional modules.
 
 ### Identity and Attestation
 

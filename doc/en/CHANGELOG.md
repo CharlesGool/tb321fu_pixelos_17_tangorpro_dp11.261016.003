@@ -26,6 +26,24 @@ metadata:
 
 ## Changelog
 
+### user-v2.0(V23)- 2026-11-10
+
+- Added: dual-motor vibrator HAL (`vibrator-hal`, system-side IVibratorManager, both Awinic motors recognised, third-party haptics work).
+- Added: flashlight strength levels (`torch-levels`, the quick-settings brightness slider's 1-4 levels now take effect; turning on level 1/2 from off no longer flashes bright first; LED triggers self-heal; works before first unlock after a reboot).
+- Added: a channel for built-in feature apps (`herald-apps`) and three Settings apps — battery, device spoofing & key attestation (About), and hide-navbar (navigation-mode page); these three and the Lenovo camera all support predictive back.
+- Added: Wi-Fi-only handling (`wifi-only`), audio/video power profile (`power-profile`), qesdk seccomp lseek fix (`qesdk-seccomp-fix`), cover-close sleep / edge rotation (`cover-rotation-fix`), long-press auto-brightness tile (`qs-auto-brightness`), and no more init child SIGABRT at boot (`qti-testscripts-fix`).
+- Fixed: after a herald restart (crash/kill) keystore2 would segfault and keystore would lock (Wi-Fi share etc. crashed). Root cause: the startup script overwrote the inject payload in place while keystore2 had it mmap'd; `attestation-fix` V1.4 switches to an atomic replace (temp file + rename for a new inode).
+- Changed: module count 38 → 48 (44 required + 4 optional); `battery` V1.2, `attestation-fix` V1.4, `navbar-hide` V1.2, `zuicamera` V1.5, `herald-apps` V1.2.
+- Note: this Release ships an incremental patch from user-v1.9; the full package will be added later. The internal variant `user-v2.0-cust_bebug` additionally carries custom fonts/emoji, ush and one-tap spoofing, and is not distributed publicly.
+
+### user-v1.9(V10)- 2026-11-09
+
+- Added: double-tap to wake (`dt2w` V1.1, Settings → Display → tap to wake; `heraldctl dt2w`).
+- Added: video-freeze fix (`video-freeze-fix`, videos in X etc. no longer "sound continues, picture frozen").
+- Changed: Bluetooth (`bluetooth-fix` V2.0) moved to Qualcomm ADSP hardware offload — A2DP and LE Audio (LC3), vendor uses the stock audio policy, "LE audio" appears in headset details, and the ~60 s voice downlink delay under LE Audio is fixed; the SCO call patch is kept.
+- Changed: module count 36 → 38 (34 required + 4 optional).
+- Note: this Release ships an incremental patch from user-v1.5; the full package will be added later.
+
 ### user-v1.5(V6)- 2026-11-07
 
 - Fixed: Now Playing still auto-started. v1.3 removed the Now Playing app, but Android System Intelligence (ASI) kept re-starting ambient music recognition from the four acoustic models at `product/etc/firmware/music_detector.*`, holding a recording session open and occasionally making audio choppy again. This version bumps `now-playing` to V1.1 and also removes those four models (descriptor / sound_model / sound_model_2 / sound_model_tflite); with no models to load, ASI cannot start it, so Now Playing never auto-starts again.

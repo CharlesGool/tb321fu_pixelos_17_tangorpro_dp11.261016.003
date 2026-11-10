@@ -26,6 +26,24 @@ metadata:
 
 ## 变更日志
 
+### user-v2.0(V23)- 2026-11-10
+
+- 新增: 双马达振动 HAL(`vibrator-hal`, 系统侧 IVibratorManager, 两颗 Awinic 马达都认, 第三方 App 触感正常)。
+- 新增: 手电筒档位(`torch-levels`, 下拉面板亮度滑块 1~4 档真正生效; 从关闭打开 1/2 档不先闪, LED trigger 自愈, 重启解锁前也生效)。
+- 新增: 内置功能 App 通道(`herald-apps`)和三个带界面的内置 App——电池管理、机型伪装与密钥认证(关于本机)、隐藏导航栏(导航模式页); 这三个 App 和联想相机都支持预测性返回。
+- 新增: 纯 Wi-Fi 处理(`wifi-only`)、耗电统计补音视频(`power-profile`)、qesdk seccomp 补 lseek(`qesdk-seccomp-fix`)、合盖灭屏/边缘旋转(`cover-rotation-fix`)、快捷设置自动亮度长按(`qs-auto-brightness`)、开机 init 子进程不再 SIGABRT(`qti-testscripts-fix`)。
+- 修复: herald 重启(崩溃/被杀)后 keystore2 跟着段错误、keystore 被锁(分享 WLAN 等需认证操作闪退)。根因是启动脚本原地覆写了正被 keystore2 mmap 的 inject 载荷; `attestation-fix` V1.4 改成原子替换(临时文件 + rename 换 inode)解决。
+- 变更: 模块数 38 → 48(44 必选 + 4 可选); `battery` V1.2、`attestation-fix` V1.4、`navbar-hide` V1.2、`zuicamera` V1.5、`herald-apps` V1.2。
+- 说明: 本 Release 提供从 user-v1.9 升级的增量补丁, 完整包稍后补。自用变种 `user-v2.0-cust_bebug` 另含字体/emoji、ush、一键伪装, 不公开分发。
+
+### user-v1.9(V10)- 2026-11-09
+
+- 新增: 双击唤醒(`dt2w` V1.1, 设置 → 显示 → 点按唤醒; `heraldctl dt2w`)。
+- 新增: 视频冻结修复(`video-freeze-fix`, X 等 app 刷视频不再"声音继续、画面定格")。
+- 变更: 蓝牙(`bluetooth-fix` V2.0)改走高通 ADSP 硬件卸载——A2DP 和 LE Audio(LC3), vendor 用原厂音频策略, 耳机详情里可开"LE 音频", 修 LE Audio 下语音下行约 60 秒延迟; SCO 通话补丁保留。
+- 变更: 模块数 36 → 38(34 必选 + 4 可选)。
+- 说明: 本 Release 提供从 user-v1.5 升级的增量补丁, 完整包稍后补。
+
 ### user-v1.5(V6)- 2026-11-07
 
 - 修复: 「文曲知音」仍会自启。v1.3 删了 Now Playing 应用, 但 Android System Intelligence(ASI)还会从 `product/etc/firmware/music_detector.*` 这 4 个声学模型重新起环境音乐识别, 常驻占用录音会话, 偶尔还让声音断断续续。本版把 `now-playing` 升到 V1.1, 连这 4 个模型(descriptor / sound_model / sound_model_2 / sound_model_tflite)一起删, ASI 没有模型就加载不了, 「文曲知音」从此彻底不自启。

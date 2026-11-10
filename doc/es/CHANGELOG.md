@@ -26,6 +26,24 @@ metadata:
 
 ## Historial de cambios
 
+### user-v2.0(V23)- 2026-11-10
+
+- Añadido: HAL de vibración de doble motor (`vibrator-hal`, IVibratorManager del lado del sistema, reconoce ambos motores Awinic, el háptico de apps de terceros funciona).
+- Añadido: niveles de intensidad de la linterna (`torch-levels`, los niveles 1-4 del control deslizante ya surten efecto; encender en nivel 1/2 desde apagado ya no destella primero; los triggers LED se autorreparan; funciona antes del primer desbloqueo tras reiniciar).
+- Añadido: un canal para apps de funciones integradas (`herald-apps`) y tres apps en Ajustes — batería, suplantación de modelo y atestación de claves (Acerca de), y ocultar barra de navegación; estas tres y la cámara Lenovo admiten retroceso predictivo.
+- Añadido: tratamiento solo Wi-Fi (`wifi-only`), perfil de energía de audio/vídeo (`power-profile`), corrección de seccomp lseek de qesdk (`qesdk-seccomp-fix`), apagado al cerrar la funda / rotación en bordes (`cover-rotation-fix`), mosaico de brillo automático con pulsación larga (`qs-auto-brightness`) y fin del SIGABRT del proceso hijo de init al arrancar (`qti-testscripts-fix`).
+- Corregido: tras reiniciar herald (fallo/cierre) keystore2 fallaba y keystore se bloqueaba (compartir Wi-Fi, etc. se cerraba). Causa: el script de arranque sobrescribía el payload de inject en el sitio mientras keystore2 lo tenía mapeado; `attestation-fix` V1.4 pasa a un reemplazo atómico (archivo temporal + renombrado para un inode nuevo).
+- Cambiado: número de módulos 38 → 48 (44 obligatorios + 4 opcionales); `battery` V1.2, `attestation-fix` V1.4, `navbar-hide` V1.2, `zuicamera` V1.5, `herald-apps` V1.2.
+- Nota: esta Release ofrece un parche incremental desde user-v1.9; el paquete completo se añadirá más adelante. La variante interna `user-v2.0-cust_bebug` incluye además fuentes/emoji personalizados, ush y suplantación con un toque, y no se distribuye públicamente.
+
+### user-v1.9(V10)- 2026-11-09
+
+- Añadido: doble toque para despertar (`dt2w` V1.1, Ajustes → Pantalla → tocar para despertar; `heraldctl dt2w`).
+- Añadido: corrección de congelación de vídeo (`video-freeze-fix`, los vídeos en X etc. ya no quedan con "el sonido sigue, la imagen congelada").
+- Cambiado: Bluetooth (`bluetooth-fix` V2.0) pasa a descarga por hardware del ADSP de Qualcomm — A2DP y LE Audio (LC3), vendor usa la política de audio original, "audio LE" aparece en los detalles del auricular y se corrige el retardo de ~60 s en el enlace descendente de voz con LE Audio; se mantiene el parche de llamada SCO.
+- Cambiado: número de módulos 36 → 38 (34 obligatorios + 4 opcionales).
+- Nota: esta Release ofrece un parche incremental desde user-v1.5; el paquete completo se añadirá más adelante.
+
 ### user-v1.5(V6)- 2026-11-07
 
 - Corregido: Now Playing seguía iniciándose automáticamente. La v1.3 eliminó la app Now Playing, pero Android System Intelligence (ASI) seguía reiniciando el reconocimiento de música ambiental desde los cuatro modelos acústicos en `product/etc/firmware/music_detector.*`, manteniendo abierta una sesión de grabación y provocando a veces de nuevo un audio entrecortado. Esta versión sube `now-playing` a V1.1 y elimina también esos cuatro modelos (descriptor / sound_model / sound_model_2 / sound_model_tflite); sin modelos que cargar, ASI no puede iniciarlo, así que Now Playing ya no se inicia automáticamente.

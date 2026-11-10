@@ -20,7 +20,7 @@
 
 ## 简介
 
-联想拯救者 Y700 三代(TB321FU)的 Pixel Tablet Android 17 GSI 9008 刷机包. 底包是 Google 官方 Android 17 QPR3 Beta 3(`DP11.261016.003`)镜像, 是 Beta 版系统. 当前正式版 user-v1.5(内部版本 V6), 在 v1.4 基础上把 `now-playing` 升到 V1.1(连 ASI 的 4 个声学模型一起删, 「文曲知音」从此彻底不自启). **注: v1.5 在 Releases 提供从 user-v1.4 升级的增量补丁, 完整包稍后补; 从更早版本请逐级升级(v1.2→v1.3→v1.4→v1.5), 全新安装暂用 user-v1.2 完整包.** 已知问题见 [LOG](doc/LOG.md#限制).
+联想拯救者 Y700 三代(TB321FU)的 Pixel Tablet Android 17 GSI 9008 刷机包. 底包是 Google 官方 Android 17 QPR3 Beta 3(`DP11.261016.003`)镜像, 是 Beta 版系统. 当前正式版 user-v2.0(内部版本 V23), 相对 user-v1.9 新增双马达振动 HAL、纯 Wi-Fi 处理、耗电统计补音视频、qesdk seccomp、合盖灭屏/边缘旋转、快捷设置自动亮度长按、手电筒档位、内置功能 App(电池/机型伪装/导航栏)及其与联想相机的预测性返回, 并修了 herald 重启后 keystore2 崩溃. **注: Releases 提供逐级增量补丁, 升级链 v1.5→v1.9→v2.0(各版补丁从上一版升); 完整包稍后补, 全新安装暂用 user-v1.2 完整包.** 已知问题见 [LOG](doc/LOG.md#限制).
 
 ### 重点, 写在前面
 
@@ -29,7 +29,7 @@
 3. 底包是 Google 的 Beta 版, 系统本身可能还有 Beta 阶段的问题.
 4. 本刷机包可自动化构建. 有 Linux PC 的话, 可以自己更换 GSI 和底包版本并构建(底包和原厂固件需自备), 见 [TB321FU-GSI-Mods](https://github.com/CharlesGool/TB321FU-GSI-Mods).
 
-每个模块的作用见 [modules-user-v1.5](doc/modules-user-v1.5.md). 本版共 36 个模块: 32 个必选模块加 4 个可选模块.
+每个模块的作用见 [modules-user-v2.0](doc/modules-user-v2.0.md). 本版共 48 个模块: 44 个必选模块加 4 个可选模块.
 
 ### 身份和认证
 
