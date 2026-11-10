@@ -41,7 +41,7 @@ No confirmed bugs.
 - With global spoofing enabled, the "Version number" in Settings shows the spoofed model's value. To confirm which version is flashed, check the `ro.tb321fu.mod_version` property.
 - The Lenovo camera's watermark does not work: it requires the camera HAL to recognize the Lenovo camera, which this release does not do.
 - The Lenovo camera needs to read the real device model. If the model is changed by means other than global spoofing, it may not work.
-- LE Audio is disabled; dual-mode headphones use classic Bluetooth.
+- Previously paired dual-mode earbuds need one Bluetooth restart after turning on "LE audio" in the earbud details.
 - Face unlock is a WEAK biometric: it can unlock and do weak verification, but it cannot authorize payments or open StrongBox credentials.
 - The boot animation is upright when the tablet is held landscape; when held in portrait, the picture is sideways.
 - About 3 pixels of space remain at the bottom after hiding the navigation bar.

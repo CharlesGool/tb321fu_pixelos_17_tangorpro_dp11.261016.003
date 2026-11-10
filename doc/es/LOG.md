@@ -41,7 +41,7 @@ No hay errores confirmados.
 - Con la suplantación global activada, el "Número de versión" de Ajustes muestra el valor del modelo suplantado; para saber qué versión se ha flasheado, consulte la propiedad `ro.tb321fu.mod_version`.
 - La marca de agua de la cámara de Lenovo no funciona: requiere que el HAL de cámara reconozca la cámara de Lenovo, y esta versión no lo implementa.
 - La cámara de Lenovo necesita leer el modelo real; si el modelo se cambia por un medio distinto de la suplantación global, puede que no funcione.
-- LE Audio está desactivado; los auriculares de modo dual usan Bluetooth clásico.
+- Los auriculares de modo dual emparejados antes necesitan reiniciar el Bluetooth una vez tras activar "Audio LE" en los detalles del auricular.
 - El desbloqueo facial es biometría WEAK: sirve para desbloquear y para verificaciones débiles, pero no autoriza pagos ni abre credenciales de StrongBox.
 - La animación de arranque se orienta según la dirección en que se sujeta la tableta en horizontal; sujetándola en vertical, la imagen se ve de lado.
 - Al ocultar la barra de navegación queda un espacio de unos 3 píxeles en la parte inferior.
